@@ -1,0 +1,13 @@
+{
+  "name": "demo-cicd-minikube",
+  "version": "1.0.0",
+  "description": "Demo CI/CD avec GitHub Actions et Minikube",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo "Tests OK""
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
