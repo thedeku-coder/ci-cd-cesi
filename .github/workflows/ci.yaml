@@ -1,0 +1,30 @@
+name: CI pipeline
+
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: test
+      run: npm test
+
+    - name: Login in to DockerHub
+      run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+
+    - name: Build Docker image
+      run: docker build -t ${{ secrets.DOCKER_USERNAME }}/demo-cicd-minikube:latest .
+        
+    - name: Push Docker image
+      run: docker push ${{ secrets.DOCKER_USERNAME }}/demo-cicd-minikube:latest 
+      
+          
