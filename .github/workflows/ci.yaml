@@ -47,7 +47,7 @@ jobs:
 
       - name: Deploy to Minikube
         run: |
-        minikube start
-        kubectl apply -f k8s
-        kubectl get pods
-        minikube service demo-app-service
+          minikube start
+          kubectl apply -f k8s
+          kubectl get pods
+          minikube service demo-app-service
